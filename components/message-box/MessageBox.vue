@@ -1,19 +1,29 @@
 <template>
-  <div v-show="isVisible" class="message-box global-alert">
+  <div v-show="isVisible" class="message-box full-overlay">
     <div class="message-box__inner">
-      <h2 style="margin-bottom:10px">Alert</h2>
+      <h2 style="margin-bottom:10px">{{ type }}</h2>
       <p v-if="useHtml" v-html="label"></p>
       <p v-else>{{ label }}</p>
       <div style="display:flex; gap:20px; margin-top:30px;">
         <template v-if="type !== 'alert'">
-          <Button severity="primary" @click="handleConfirm"
-          style="background: #F3A603; color:#000; border:none; font-weight: 900; padding:10px 30px;">Delete</Button>
-        <Button severity="info" @click="handleCancel"
-          style="background: none; color:#F3A603; border:1px solid #F3A603; font-weight: 900; padding:10px 30px;">Cancel</Button>
+          <Button 
+            class="button-primary" 
+            severity="primary" 
+            @click="handleConfirm"
+          >
+            {{ confirmLabel }}
+          </Button>
+          <Button 
+            class="button"
+            severity="info" 
+            @click="handleCancel"
+            
+          >
+            {{ cancelLabel }}
+          </Button>
         </template>
         <template v-else>
-          <Button severity="info" @click="handleCancel"
-          style="background: #F3A603; color:#000; border:none; font-weight: 900; padding:10px 30px;">OK</Button>
+          <Button class="button button-primary" severity="info" @click="handleCancel">{{ confirmLabel }}</Button>
         </template>
       </div>
     </div>
@@ -28,7 +38,7 @@ export default {
     type: {
       type: String,
       default: 'alert',
-      validator: function(value) {
+      validator: function (value) {
         return ['alert', 'confirm'].includes(value);
       }
     },
@@ -39,6 +49,14 @@ export default {
     label: {
       type: String,
       default: 'Are you sure you want to delete this item?<br> This action cannot be undone.'
+    },
+    confirmLabel: {
+      type: String,
+      default: '확인'
+    },
+    cancelLabel: {
+      type: String,
+      default: '취소'
     },
     onConfirm: {
       type: Function,
@@ -55,10 +73,6 @@ export default {
   },
   setup(props) {
     const isVisible = ref(true)
-    const test = () => {
-      console.log('console.log from message box')
-    }
-
     const handleConfirm = () => {
       console.log('confirm')
       props.onConfirm()
@@ -66,15 +80,11 @@ export default {
 
     const handleCancel = () => {
       isVisible.value = false
-      // props.onCancel()
     }
     return {
       isVisible,
       handleConfirm,
       handleCancel,
-      test,
-      wow: 123,
-      sampleLabel: 'Are you sure you want to delete this item?<br> This action cannot be undone.'
     }
   }
 }
@@ -88,18 +98,11 @@ export default {
   justify-content: center;
   align-items: center;
 
-  h2,
-  p {
-    padding: 0px;
-    margin: 0px;
-
-  }
-
   &__inner {
     text-align: center;
     min-width: 300px;
     max-width: 600px;
-    height: auto; // background: #e0d170;
+    height: auto;
     background: #fff;
     padding: 40px;
     color: white;
@@ -116,14 +119,33 @@ export default {
     font-size: 18px;
     color: #000;
     white-space: pre-wrap;
-    // word-wrap: break-word;
     margin-top: 100px;
   }
 }
+.button {
+  background: none; 
+  color:#F3A603; 
+  border:1px solid #F3A603; 
+  font-weight: 900; 
+  padding:10px 30px;
+
+  &.primary {
+    background: #F3A603;
+    color: #000;
+    border:none;
+  }
+}
+
+.button
 
 
+h2,
+p {
+  padding: 0px;
+  margin: 0px;
+}
 
-.global-alert {
+.full-overlay {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -131,8 +153,5 @@ export default {
   bottom: 0px;
   width: 100%;
   height: 100vh;
-  // border: 1px solid red;
-  // background: black;
-  // opacity: 0.5;
 }
 </style>
