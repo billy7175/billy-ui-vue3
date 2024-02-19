@@ -1,0 +1,11 @@
+{
+  "name": "billy-ui",
+  "version": "1.0.22",
+  "description": "billy-ui components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "billy7175",
+  "license": "ISC"
+}
