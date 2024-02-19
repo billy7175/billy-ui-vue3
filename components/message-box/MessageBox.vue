@@ -93,11 +93,11 @@ export default {
 <style lang="scss" scoped>
 .message-box {
   background: rgba(1, 0, 0, 0.388);
-  background: #FFF3D0;
+  background: #f6ebcb80;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   &__inner {
     text-align: center;
     min-width: 300px;
