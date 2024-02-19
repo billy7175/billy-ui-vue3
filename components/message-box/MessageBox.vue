@@ -7,7 +7,7 @@
       <div style="display:flex; gap:20px; margin-top:30px;">
         <template v-if="type !== 'alert'">
           <Button 
-            class="button-primary" 
+            class="button primary" 
             severity="primary" 
             @click="handleConfirm"
           >

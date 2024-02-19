@@ -31,7 +31,7 @@ export default {
       document.body.appendChild(container);
     });
   },
-  create(
+  confirm(
     message = "This feature is being tested right now.",
     { useHtml = false } = {}
   ) {
