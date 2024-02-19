@@ -1,6 +1,6 @@
 {
   "name": "billy-ui",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "billy-ui components",
   "main": "index.js",
   "scripts": {
