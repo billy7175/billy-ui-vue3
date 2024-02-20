@@ -32,6 +32,7 @@
 import { ref, computed } from 'vue';
 
 export default {
+  name: 'Table',
   props: {
     columns: {
       type: Array,
