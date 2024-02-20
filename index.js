@@ -7,7 +7,7 @@ import Button from './components/button/button.vue';
 const components = [
   TestBox,
   TestBoxx,
-  button
+  Button
 ]
 
 export default {
@@ -23,5 +23,5 @@ export {
   TestBox,
   TestBoxx,
   MessageBox,
-  button
+  Button
  }
