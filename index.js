@@ -1,7 +1,7 @@
 import TestBox from './components/TestBox.vue';
 import TestBoxx from './components/TestBoxx.vue';
 import MessageBox from './components/message-box/message-box.js';
-import Button from './components/button/button.js';
+import Button from './components/button/button.vue';
 
 
 const components = [
