@@ -1,11 +1,13 @@
 import TestBox from './components/TestBox.vue';
 import TestBoxx from './components/TestBoxx.vue';
 import MessageBox from './components/message-box/message-box.js';
+import Button from './components/button/button.js';
 
 
 const components = [
   TestBox,
-  TestBoxx
+  TestBoxx,
+  button
 ]
 
 export default {
@@ -17,9 +19,9 @@ export default {
 }
 
 
-
 export {   
   TestBox,
   TestBoxx,
-  MessageBox
+  MessageBox,
+  button
  }
