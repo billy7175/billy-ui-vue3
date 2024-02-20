@@ -28,3 +28,5 @@ export {
   Button,
   Table
  }
+
+export const Table = Table;
